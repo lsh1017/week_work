@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const axios = require("axios");
 
 app.use(cors());
 app.use(express.json());
@@ -36,6 +37,38 @@ app.get("/user/:nickname", async (req, res) => {
     }
 
     res.json(user);
+});
+
+// ✅ 원정대 캐릭터 목록 가져오기
+app.get("/expedition/:nickname", async (req, res) => {
+    const { nickname } = req.params;
+    console.log(`🔍 원정대 데이터 요청: ${nickname}`);
+
+    try {
+        const response = await axios.get(
+            `https://developer-lostark.game.onstove.com/characters/${encodeURIComponent(nickname)}/siblings`,
+            { headers: { Authorization: `bearer ${process.env.LOST_ARK_API_KEY}` } }
+        );
+
+        if (!Array.isArray(response.data)) {
+            return res.status(500).json({ error: "잘못된 API 응답" });
+        }
+
+        const sortedCharacters = response.data
+            .map(char => ({
+                CharacterName: char.CharacterName,
+                CharacterClassName: char.CharacterClassName,
+                ItemMaxLevel: parseFloat(char.ItemMaxLevel.replace(",", ""))
+            }))
+            .sort((a, b) => b.ItemMaxLevel - a.ItemMaxLevel)
+            .slice(0, 6);
+
+        console.log(`✅ 원정대 데이터 불러오기 완료: ${nickname}`);
+        res.json(sortedCharacters);
+    } catch (error) {
+        console.error("❌ 원정대 데이터 가져오기 실패:", error.message);
+        res.status(500).json({ error: "원정대 정보를 불러올 수 없습니다." });
+    }
 });
 
 // ✅ 사용자의 체크한 레이드 저장
