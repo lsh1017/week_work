@@ -190,3 +190,59 @@ body {
     gap: 10px;
     flex-wrap: nowrap; /* ✅ 버튼이 아래로 내려가는 것을 방지 */
 }
+
+/* ✅ 반응형 디자인 (모바일 화면에서 스타일 수정) */
+@media (max-width: 768px) {
+    /* 검색 영역 */
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* 캐릭터 목록을 세로로 나열 */
+    .character-grid {
+        grid-template-columns: 1fr 1fr; /* 두 개씩 한 줄 */
+        gap: 10px;
+    }
+
+    /* 캐릭터 개별 박스 크기 조정 */
+    .character-box {
+        min-width: 250px;
+        padding: 10px;
+    }
+
+    /* 버튼 크기 및 레이아웃 수정 */
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* 레이드 버튼 크기 조정 */
+    .toggle-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .total-gold {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-header {
+        font-size: 16px;
+    }
+
+    .save-btn,
+    .reset-btn {
+        padding: 5px 10px;
+    }
+
+    .total-gold {
+        font-size: 14px;
+    }
+}
