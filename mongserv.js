@@ -88,19 +88,14 @@ app.post("/save-raids", async (req, res) => {
     res.json({ message: "✅ 데이터 저장 완료!" });
 });
 
-// ✅ 레이드 목록 가져오기
-const raidSchema = new mongoose.Schema({
-    id: Number,
-    name: String,
-    normalGold: Number,
-    hardGold: Number
-});
-
-const Raid = mongoose.model("Raid", raidSchema);
-
 app.get("/raids", async (req, res) => {
-    const raids = await Raid.find();
-    res.json(raids);
+    try {
+        const raids = await mongoose.connection.db.collection("raids").find().toArray();
+        res.json(raids);
+    } catch (error) {
+        console.error("❌ 레이드 목록 불러오기 실패:", error);
+        res.status(500).json({ error: "레이드 정보를 가져올 수 없습니다." });
+    }
 });
 
 // ✅ 레이드 초기화
