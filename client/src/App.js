@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.css"; // ✅ 스타일 적용
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
     const [nickname, setNickname] = useState("");
@@ -43,6 +43,7 @@ function App() {
             })
             .catch(err => console.error("❌ 사용자 데이터 불러오기 실패:", err));
     };
+    console.log("🔍 API_URL:", API_URL);
 
     const handleRaidSelection = (character, raidId) => {
         let updatedSelections = { ...selectedRaids };
