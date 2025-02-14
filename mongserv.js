@@ -90,7 +90,7 @@ app.post("/save-raids", async (req, res) => {
 
 app.get("/raids", async (req, res) => {
     try {
-        const raids = await mongoose.connection.db.collection("raids").find().toArray();
+        const raids = await mongoose.connection.db.collection("lostark.raids").find().toArray();
         res.json(raids);
     } catch (error) {
         console.error("❌ 레이드 목록 불러오기 실패:", error);
