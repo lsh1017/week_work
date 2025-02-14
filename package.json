@@ -1,6 +1,6 @@
 {
   "scripts": {
-  "start": "node server.js"
+  "start": "node mongserv.js"
   },
   "name": "nodejs",
   "version": "1.0.0",
