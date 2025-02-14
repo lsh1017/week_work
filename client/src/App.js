@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.css"; // ✅ 스타일 적용
+const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
     const [nickname, setNickname] = useState("");
@@ -13,7 +14,7 @@ function App() {
     const [characterGold, setCharacterGold] = useState({});
 
     useEffect(() => {
-        axios.get("http://localhost:3001/raids").then(response => {
+        axios.get(`${API_URL}/raids`).then(response => {
             setRaids(response.data);
         });
     }, []);
@@ -24,7 +25,7 @@ function App() {
             return;
         }
 
-        axios.get(`http://localhost:3001/expedition/${nickname}`)
+        axios.get(`${API_URL}/expedition/${nickname}`)
             .then(response => {
                 setCharacters(response.data);
                 fetchUserData(nickname);
@@ -33,7 +34,7 @@ function App() {
     };
 
     const fetchUserData = (nickname) => {
-        axios.get(`http://localhost:3001/user/${nickname}`)
+        axios.get(`${API_URL}/user/${nickname}`)
             .then(response => {
                 setSelectedRaids(response.data.selectedRaids || {});
                 setSelectedDifficulties(response.data.selectedDifficulties || {});
@@ -134,7 +135,7 @@ function App() {
             extraIncome: extraIncome || {}
         };
 
-        axios.post("http://localhost:3001/save-raids", data)
+        axios.post(`${API_URL}/save-raids`, data)
             .then(() => alert("✅ 데이터가 저장되었습니다."))
             .catch(err => alert("❌ 저장에 실패했습니다."));
     };
