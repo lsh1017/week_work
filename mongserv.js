@@ -88,18 +88,21 @@ app.post("/save-raids", async (req, res) => {
     res.json({ message: "✅ 데이터 저장 완료!" });
 });
 
+const db = mongoose.connection.useDb("lostark"); // ✅ 데이터베이스 명시적으로 선택
+
+// ✅ 레이드 목록 가져오기
 const raidSchema = new mongoose.Schema({
     id: Number,
     name: String,
     normalGold: Number,
     hardGold: Number
-}, { collection: 'lostark.raids' });  // lostark.raids 컬렉션을 명시적으로 설정
+});
 
-const Raid = mongoose.model("Raid", raidSchema);
+const Raid = db.model("Raid", raidSchema); // ✅ 모델을 데이터베이스에 연결
 
 app.get("/raids", async (req, res) => {
     try {
-        const raids = await Raid.find();  // 'lostark.raids' 컬렉션에서 데이터를 찾음
+        const raids = await Raid.find();  // ✅ 올바른 DB에서 데이터 조회
         res.json(raids);
     } catch (err) {
         console.error("❌ 레이드 데이터 불러오기 실패:", err);
