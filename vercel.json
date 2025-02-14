@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/api/(.*)",
+        "destination": "https://weekwork-production.up.railway.app/api/$1"
+      }
+    ]
+  }
+  
