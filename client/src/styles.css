@@ -1,0 +1,192 @@
+/* ✅ 전체 화면 중앙 정렬 */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ 검색 영역 */
+.search-container {
+    display: flex;
+    align-items: center; /* 요소들을 수직 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    gap: 15px; /* 요소들 간 간격 */
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    width: 200px;
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container button {
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+/* ✅ 캐릭터 목록 */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개씩 한 줄 */
+    gap: 15px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ✅ 캐릭터 개별 박스 */
+.character-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 300px;
+}
+
+/* ✅ 캐릭터 이름 & 레벨 */
+.character-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ✅ 레이드 리스트 */
+.raid-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+/* ✅ 노말/하드 버튼 */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.toggle-btn {
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.toggle-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.toggle-btn:not(.active) {
+    background-color: #ccc;
+    color: black;
+}
+
+/* ✅ 버튼 그룹 (저장 & 초기화) */
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.button-group button {
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-group button:first-child {
+    background-color: #28a745;
+    color: white;
+}
+
+.button-group button:first-child:hover {
+    background-color: #218838;
+}
+
+.button-group button:last-child {
+    background-color: #dc3545;
+    color: white;
+}
+
+.button-group button:last-child:hover {
+    background-color: #c82333;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.total-gold {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #ff9900;
+}
+
+.toggle-switch {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    min-width: 80px;
+}
+
+.toggle-option {
+    flex: 1;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.toggle-option.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.raid-item {
+    display: flex;
+    align-items: center; /* ✅ 모든 요소를 수직 가운데 정렬 */
+    gap: 10px;
+    flex-wrap: nowrap; /* ✅ 버튼이 아래로 내려가는 것을 방지 */
+}

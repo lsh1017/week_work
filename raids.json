@@ -1,0 +1,10 @@
+[
+    { "id": 1, "name": "[3막] 모르둠", "normalGold": 28000, "hardGold": 38000 },
+    { "id": 2, "name": "[2막] 아브렐슈드", "normalGold": 25000, "hardGold": 30500 },
+    { "id": 3, "name": "[1막] 에기르", "normalGold": 2800, "hardGold": 27500 },
+    { "id": 4, "name": "[서막] 에키드나", "normalGold": 2800, "hardGold": 3600 },
+    { "id": 6, "name": "베히모스", "normalGold": 18000, "hardGold": 0 },
+    { "id": 7, "name": "카멘 1-3 관문", "normalGold": 2800, "hardGold": 15000 },
+    { "id": 8, "name": "카멘 4 관문", "normalGold": 8000, "hardGold": 0 }
+    
+]

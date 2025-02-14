@@ -1,0 +1,33 @@
+{
+  "뀰은마시써": {
+    "selectedRaids": {
+      "자두는마시써": [
+        1
+      ],
+      "뀰은마시써": []
+    },
+    "selectedDifficulties": {
+      "자두는마시써_1": "normal"
+    },
+    "extraIncome": {
+      "자두는마시써": "",
+      "뀰은마시써": "123"
+    }
+  },
+  "play로": {
+    "selectedRaids": {
+      "Play로": [
+        1,
+        2,
+        3
+      ]
+    },
+    "selectedDifficulties": {
+      "Play로_1": "normal",
+      "Play로_2": "normal",
+      "Play로_3": "normal",
+      "Play로_4": "normal"
+    },
+    "extraIncome": {}
+  }
+}
